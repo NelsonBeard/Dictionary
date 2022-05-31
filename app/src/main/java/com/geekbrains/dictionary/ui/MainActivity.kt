@@ -1,7 +1,9 @@
 package com.geekbrains.dictionary.ui
 
+import android.app.Activity
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.geekbrains.dictionary.databinding.ActivityMainBinding
 import com.geekbrains.dictionary.domain.entity.DataFromServer
@@ -10,7 +12,7 @@ class MainActivity : AppCompatActivity(), Contract.View {
 
     private lateinit var binding: ActivityMainBinding
     private val presenter = Presenter()
-    private var wordToSearch: String? = null
+    private val adapter = DataFromServerListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,19 +21,22 @@ class MainActivity : AppCompatActivity(), Contract.View {
         setContentView(binding.root)
 
         presenter.onAttach(this)
+        binding.translationRecyclerView.adapter = adapter
 
         binding.searchWordButton.setOnClickListener {
-            wordToSearch = binding.inputWordEditText.text.toString()
+            val wordToSearch = binding.inputWordEditText.text.toString()
             presenter.requestTranslation(wordToSearch)
+            hideKeyboard(currentFocus ?: View(this))
         }
     }
 
-    override fun showTranslation(serverResponse: List<DataFromServer>) {
-        TODO("Not yet implemented")
+    private fun hideKeyboard(view: View) {
+        (getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    override fun showToast(word:String?) {
-        Toast.makeText(this, word, Toast.LENGTH_SHORT).show()
+    override fun showTranslation(serverResponse: List<DataFromServer>) {
+        adapter.setData(serverResponse)
     }
 
     override fun onDestroy() {
