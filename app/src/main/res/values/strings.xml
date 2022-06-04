@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Dictionary</string>
+    <string name="search_word_button">Найти</string>
+    <string name="input_word_edit_text_hint">Введи слово</string>
 </resources>
