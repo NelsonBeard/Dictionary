@@ -10,9 +10,8 @@ import com.geekbrains.dictionary.domain.usecase.TranslationRepo
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    private val translationRepo: TranslationRepo
+    val translationRepo: TranslationRepo
 ) : ViewModel() {
-
 
     private val _liveDataFromServer = MutableLiveData<List<DataFromServer>>()
     val liveDataFromServer: LiveData<List<DataFromServer>> = _liveDataFromServer

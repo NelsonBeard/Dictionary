@@ -1,13 +1,15 @@
 package com.geekbrains.dictionary
 
 import android.app.Application
-import android.content.Context
-import com.geekbrains.dictionary.data.RetrofitImplementation
-import com.geekbrains.dictionary.domain.usecase.TranslationRepo
+import com.geekbrains.dictionary.di.application
+import com.geekbrains.dictionary.di.mainScreen
+import org.koin.core.context.startKoin
 
 class App : Application() {
-    val translationRepo: TranslationRepo by lazy { RetrofitImplementation() }
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            modules(listOf(application, mainScreen))
+        }
+    }
 }
-
-val Context.app: App
-    get() = applicationContext as App
