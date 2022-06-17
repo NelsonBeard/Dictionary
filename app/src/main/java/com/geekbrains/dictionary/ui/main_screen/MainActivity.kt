@@ -1,4 +1,4 @@
-package com.geekbrains.dictionary.ui
+package com.geekbrains.dictionary.ui.main_screen
 
 import android.app.Activity
 import android.os.Bundle
@@ -7,6 +7,11 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.geekbrains.dictionary.data.LocalRepo
 import com.geekbrains.dictionary.databinding.ActivityMainBinding
+import com.geekbrains.dictionary.ui.word_description.DescriptionFragment
+import com.geekbrains.dictionary.utils.NOTE
+import com.geekbrains.dictionary.utils.BODY
+import com.geekbrains.dictionary.utils.HEADER
+import com.geekbrains.dictionary.utils.IMAGE_URL
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +35,25 @@ class MainActivity : AppCompatActivity() {
 
             showTranslation(wordToSearch)
             hideKeyboard(currentFocus ?: View(this))
+        }
+
+        adapter.listener = DataFromServerListAdapter.OnItemClick {
+            val bundle = Bundle()
+            bundle.apply {
+                putString(HEADER, it.text)
+                putString(BODY, it.meanings?.get(0)?.translation?.text)
+                putString(NOTE, it.meanings?.get(0)?.translation?.note)
+                putString(IMAGE_URL, it.meanings?.get(0)?.imageUrl)
+            }
+
+            supportFragmentManager
+                .beginTransaction()
+                .addToBackStack("")
+                .add(
+                    binding.descriptionFragmentContainer.id,
+                    DescriptionFragment.newInstance(bundle)
+                )
+                .commit()
         }
     }
 

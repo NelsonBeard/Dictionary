@@ -2,7 +2,7 @@ package com.geekbrains.dictionary.di
 
 import com.geekbrains.dictionary.data.RetrofitImplementation
 import com.geekbrains.dictionary.domain.usecase.TranslationRepo
-import com.geekbrains.dictionary.ui.MainViewModel
+import com.geekbrains.dictionary.ui.main_screen.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="translation_item_margin">5dp</dimen>
-    <dimen name="item_separate_line_height">2dp</dimen>
+    <dimen name="item_separate_line_height">1dp</dimen>
 
     <dimen name="text_size_tip">10sp</dimen>
     <dimen name="text_size_standard">17sp</dimen>
-    <dimen name="text_size_standard_header">20sp</dimen>
+    <dimen name="text_size_standard_body">20sp</dimen>
     <dimen name="text_size_large">25sp</dimen>
     <dimen name="main_activity_linear_layout_margin">5dp</dimen>
     <dimen name="translation_item_padding">5dp</dimen>
     <dimen name="input_word_edit_text_padding_end">40dp</dimen>
+    <dimen name="description_layout_padding">50dp</dimen>
+    <dimen name="image_view_margin">50dp</dimen>
 
 </resources>

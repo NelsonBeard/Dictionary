@@ -8,6 +8,11 @@
     android:orientation="vertical"
     android:padding="@dimen/translation_item_padding">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_separate_line_height"
+        android:background="@color/black" />
+
     <TextView
         android:id="@+id/translation_header_text_view"
         style="@style/HeaderTextStyle"
@@ -17,14 +22,9 @@
 
     <TextView
         android:id="@+id/translation_body_text_view"
+        style="@style/BodyTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Body" />
-
-    <View
-        style="@style/BodyTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_separate_line_height"
-        android:background="@color/black" />
 
 </LinearLayout>
