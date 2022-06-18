@@ -26,11 +26,15 @@ class DescriptionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDescriptionBinding.bind(view)
 
+        getDescription()
+    }
+
+    private fun getDescription() {
+        val imageUrl = IMAGE_URL_PREFIX + arguments?.getString(IMAGE_URL)
+
         binding.translationHeaderTextView.text = arguments?.getString(HEADER)
         binding.translationBodyTextView.text = arguments?.getString(BODY)
         binding.translationNoteTextView.text = arguments?.getString(NOTE)
-        val imageUrl = IMAGE_URL_PREFIX + arguments?.getString(IMAGE_URL)
-
         binding.translationImageView.load(imageUrl) {
             transformations(CircleCropTransformation())
         }
