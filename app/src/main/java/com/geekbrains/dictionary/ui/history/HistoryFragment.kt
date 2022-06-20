@@ -32,7 +32,6 @@ class HistoryFragment : Fragment() {
             getHistory()
             liveData.observe(viewLifecycleOwner) {
                 adapter.setData(it)
-                adapter.notifyDataSetChanged()
             }
         }
     }

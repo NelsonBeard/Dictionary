@@ -6,4 +6,5 @@ import com.geekbrains.dictionary.domain.entity.DataFromServer
 interface RepoLocal {
     suspend fun saveToDb(data: List<DataFromServer>)
     suspend fun getFromDb(): List<HistoryEntity>
+    suspend fun searchInDb(word: String?): HistoryEntity
 }

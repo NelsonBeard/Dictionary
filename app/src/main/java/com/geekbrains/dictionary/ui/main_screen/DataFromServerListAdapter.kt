@@ -10,7 +10,6 @@ class DataFromServerListAdapter :
     RecyclerView.Adapter<DataFromServerListAdapter.DataFromServerViewHolder>() {
 
     private var dataFromServer: List<DataFromServer> = emptyList()
-    var listener: OnItemClick? = null
 
     fun setData(translations: List<DataFromServer>) {
         dataFromServer = translations
@@ -24,14 +23,7 @@ class DataFromServerListAdapter :
         fun bind(item: DataFromServer) {
             binding.translationHeaderTextView.text = item.text
             binding.translationBodyTextView.text = item.meanings?.get(0)?.translation?.text
-            itemView.setOnClickListener {
-                listener?.onClick(item)
-            }
         }
-    }
-
-    fun interface OnItemClick {
-        fun onClick(item: DataFromServer)
     }
 
     override fun onCreateViewHolder(

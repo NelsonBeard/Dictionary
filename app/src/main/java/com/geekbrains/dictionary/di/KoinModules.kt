@@ -22,6 +22,6 @@ val mainScreen = module {
     viewModel { MainViewModel(translationRepo = get(), repoLocal = get()) }
 }
 
-val historyScreen = module{
+val historyScreen = module {
     viewModel { HistoryViewModel(repoLocal = get()) }
 }

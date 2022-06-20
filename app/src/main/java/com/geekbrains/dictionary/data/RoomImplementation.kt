@@ -22,4 +22,8 @@ class RoomImplementation(private val history: HistoryDao) : RepoLocal {
     override suspend fun getFromDb(): List<HistoryEntity> {
         return history.getAll()
     }
+
+    override suspend fun searchInDb(word: String?): HistoryEntity {
+        return history.searchByWord(word)
+    }
 }
