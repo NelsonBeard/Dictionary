@@ -46,6 +46,7 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.util))
 
     //Legacy
     implementation(Legacy.legacy_support)
