@@ -14,17 +14,10 @@
         android:background="@color/black" />
 
     <TextView
-        android:id="@+id/translation_header_text_view"
+        android:id="@+id/history_header_text_view"
         style="@style/HeaderTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Header" />
-
-    <TextView
-        android:id="@+id/translation_body_text_view"
-        style="@style/BodyTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Body" />
 
 </LinearLayout>

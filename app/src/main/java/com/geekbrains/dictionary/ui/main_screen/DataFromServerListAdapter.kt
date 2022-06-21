@@ -1,4 +1,4 @@
-package com.geekbrains.dictionary.ui
+package com.geekbrains.dictionary.ui.main_screen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -22,9 +22,7 @@ class DataFromServerListAdapter :
 
         fun bind(item: DataFromServer) {
             binding.translationHeaderTextView.text = item.text
-            binding.translationBodyTextView.text =
-                item.meanings?.get(0)?.translation?.translation
-
+            binding.translationBodyTextView.text = item.meanings?.get(0)?.translation?.text
         }
     }
 
@@ -43,6 +41,4 @@ class DataFromServerListAdapter :
     override fun getItemCount(): Int {
         return dataFromServer.size
     }
-
-
 }
