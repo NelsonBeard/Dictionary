@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface HistoryDao {
 
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(entity: HistoryEntity)
 
     @Query("select * from history_table")
