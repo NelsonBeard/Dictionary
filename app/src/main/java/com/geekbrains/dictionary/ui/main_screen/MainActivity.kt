@@ -18,10 +18,10 @@ import com.geekbrains.dictionary.data.history.HistoryEntity
 import com.geekbrains.dictionary.databinding.ActivityMainBinding
 import com.geekbrains.dictionary.ui.history.HistoryFragment
 import com.geekbrains.dictionary.ui.word_description.DescriptionFragment
-import com.geekbrains.dictionary.utils.BODY
-import com.geekbrains.dictionary.utils.HEADER
-import com.geekbrains.dictionary.utils.IMAGE_URL
-import com.geekbrains.dictionary.utils.NOTE
+import com.geekbrains.dictionary.util.BODY
+import com.geekbrains.dictionary.util.HEADER
+import com.geekbrains.dictionary.util.IMAGE_URL
+import com.geekbrains.dictionary.util.NOTE
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

@@ -3,7 +3,6 @@ package com.geekbrains.dictionary.data
 import com.geekbrains.dictionary.domain.entity.DataFromServer
 import com.geekbrains.dictionary.domain.usecase.TranslationRepo
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
