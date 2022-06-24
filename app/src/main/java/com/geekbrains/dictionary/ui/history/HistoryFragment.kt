@@ -7,14 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.geekbrains.dictionary.R
 import com.geekbrains.dictionary.databinding.FragmentHistoryBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.fragmentScope
+import org.koin.core.scope.Scope
 
-
-class HistoryFragment : Fragment() {
+class HistoryFragment : Fragment(), AndroidScopeComponent {
 
     private lateinit var binding: FragmentHistoryBinding
     private val adapter = HistoryAdapter()
-    private val vm: HistoryViewModel by viewModel()
+
+    override val scope: Scope by fragmentScope()
+    private val vm: HistoryViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,3 +46,5 @@ class HistoryFragment : Fragment() {
         }
     }
 }
+
+

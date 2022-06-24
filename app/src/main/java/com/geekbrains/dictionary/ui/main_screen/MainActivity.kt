@@ -22,14 +22,18 @@ import com.geekbrains.dictionary.util.BODY
 import com.geekbrains.dictionary.util.HEADER
 import com.geekbrains.dictionary.util.IMAGE_URL
 import com.geekbrains.dictionary.util.NOTE
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.activityRetainedScope
+import org.koin.core.scope.Scope
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity(), AndroidScopeComponent {
     private lateinit var binding: ActivityMainBinding
 
     private val adapter = DataFromServerListAdapter()
-    private val vm: MainViewModel by viewModel()
+
+    override val scope: Scope by activityRetainedScope()
+    private val vm: MainViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
