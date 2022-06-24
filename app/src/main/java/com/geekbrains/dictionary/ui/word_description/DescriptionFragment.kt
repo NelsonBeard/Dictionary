@@ -9,7 +9,7 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.geekbrains.dictionary.R
 import com.geekbrains.dictionary.databinding.FragmentDescriptionBinding
-import com.geekbrains.dictionary.util.*
+import com.geekbrains.dictionary.utils.*
 
 class DescriptionFragment : Fragment() {
 

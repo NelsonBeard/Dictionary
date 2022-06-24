@@ -14,7 +14,7 @@ object Releases {
 }
 
 object Modules {
-    const val util = ":util"
+    const val utils = ":utils"
 }
 
 object Versions {

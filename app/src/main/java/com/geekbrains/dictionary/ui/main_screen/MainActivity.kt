@@ -12,16 +12,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.dictionary.R
 import com.geekbrains.dictionary.data.AdapterRepository
 import com.geekbrains.dictionary.data.history.HistoryEntity
 import com.geekbrains.dictionary.databinding.ActivityMainBinding
 import com.geekbrains.dictionary.ui.history.HistoryFragment
 import com.geekbrains.dictionary.ui.word_description.DescriptionFragment
-import com.geekbrains.dictionary.util.BODY
-import com.geekbrains.dictionary.util.HEADER
-import com.geekbrains.dictionary.util.IMAGE_URL
-import com.geekbrains.dictionary.util.NOTE
+import com.geekbrains.dictionary.utils.BODY
+import com.geekbrains.dictionary.utils.HEADER
+import com.geekbrains.dictionary.utils.IMAGE_URL
+import com.geekbrains.dictionary.utils.NOTE
+import com.geekbrains.utils.viewById
 import org.koin.android.ext.android.inject
 import org.koin.android.scope.AndroidScopeComponent
 import org.koin.androidx.scope.activityRetainedScope
@@ -29,11 +31,14 @@ import org.koin.core.scope.Scope
 
 class MainActivity : AppCompatActivity(), AndroidScopeComponent {
     private lateinit var binding: ActivityMainBinding
-
     private val adapter = DataFromServerListAdapter()
 
     override val scope: Scope by activityRetainedScope()
     private val vm: MainViewModel by inject()
+
+    private val translationRecyclerView by viewById<RecyclerView>(R.id.translation_recycler_view)
+    private val searchWordButton by viewById<Button>(R.id.search_word_button)
+    private val inputWordEditText by viewById<EditText>(R.id.input_word_edit_text)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +46,7 @@ class MainActivity : AppCompatActivity(), AndroidScopeComponent {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.translationRecyclerView.adapter = adapter
+        translationRecyclerView.adapter = adapter
 
         restoreAdapter()
         showTranslation()
@@ -56,8 +61,8 @@ class MainActivity : AppCompatActivity(), AndroidScopeComponent {
     }
 
     private fun showTranslation() {
-        binding.searchWordButton.setOnClickListener {
-            val wordToSearch = binding.inputWordEditText.text.toString()
+        searchWordButton.setOnClickListener {
+            val wordToSearch = inputWordEditText.text.toString()
 
             observeTranslation(wordToSearch)
             hideKeyboard(currentFocus ?: View(this))
