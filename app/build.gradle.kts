@@ -81,4 +81,8 @@ dependencies {
     //Lifecycle
     implementation(Lifecycle.livedata)
     implementation(Lifecycle.viewmodel)
+
+    //SplashScreen
+    implementation (SplashScreen.sc)
+
 }
