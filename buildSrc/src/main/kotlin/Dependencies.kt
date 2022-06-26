@@ -2,9 +2,9 @@ import org.gradle.api.JavaVersion
 
 object Config {
     const val application_id = "geekbrains.ru.translator"
-    const val compile_sdk = 32
+    const val compile_sdk = 31
     const val min_sdk = 28
-    const val target_sdk = 28
+    const val target_sdk = 31
     val java_version = JavaVersion.VERSION_1_8
 }
 
@@ -48,6 +48,9 @@ object Versions {
 
     //Room
     const val room_version = "2.4.2"
+
+    //SplashScreen
+    const val sc = "1.0.0-rc01"
 }
 
 object Legacy {
@@ -91,5 +94,9 @@ object Room {
     const val runtime = "androidx.room:room-runtime:${Versions.room_version}"
     const val compiler = "androidx.room:room-compiler:${Versions.room_version}"
     const val room_ktx = "androidx.room:room-ktx:${Versions.room_version}"
+}
+
+object SplashScreen{
+    const val sc = "androidx.core:core-splashscreen:${Versions.sc}"
 }
 
