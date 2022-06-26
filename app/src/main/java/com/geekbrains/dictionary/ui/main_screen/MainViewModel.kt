@@ -9,7 +9,7 @@ import com.geekbrains.dictionary.data.history.HistoryEntity
 import com.geekbrains.dictionary.domain.entity.DataFromServer
 import com.geekbrains.dictionary.domain.usecase.RepoLocal
 import com.geekbrains.dictionary.domain.usecase.TranslationRepo
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class MainViewModel(
     private val translationRepo: TranslationRepo,

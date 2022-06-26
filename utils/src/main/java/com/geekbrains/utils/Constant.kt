@@ -1,4 +1,4 @@
-package com.geekbrains.dictionary.util
+package com.geekbrains.dictionary.utils
 
 const val HEADER = "HEADER"
 const val BODY = "BODY"

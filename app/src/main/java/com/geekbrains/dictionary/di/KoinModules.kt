@@ -6,9 +6,12 @@ import com.geekbrains.dictionary.data.RoomImplementation
 import com.geekbrains.dictionary.data.history.HistoryDataBase
 import com.geekbrains.dictionary.domain.usecase.RepoLocal
 import com.geekbrains.dictionary.domain.usecase.TranslationRepo
+import com.geekbrains.dictionary.ui.history.HistoryFragment
 import com.geekbrains.dictionary.ui.history.HistoryViewModel
+import com.geekbrains.dictionary.ui.main_screen.MainActivity
 import com.geekbrains.dictionary.ui.main_screen.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val application = module {
@@ -19,9 +22,13 @@ val application = module {
 }
 
 val mainScreen = module {
-    viewModel { MainViewModel(translationRepo = get(), repoLocal = get()) }
+    scope<MainActivity> {
+        viewModel { MainViewModel(translationRepo = get(), repoLocal = get()) }
+    }
 }
 
 val historyScreen = module {
-    viewModel { HistoryViewModel(repoLocal = get()) }
+    scope<HistoryFragment> {
+        viewModel { HistoryViewModel(repoLocal = get()) }
+    }
 }
