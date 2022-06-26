@@ -22,13 +22,13 @@ val application = module {
 }
 
 val mainScreen = module {
-    scope(named<MainActivity>()) {
+    scope<MainActivity> {
         viewModel { MainViewModel(translationRepo = get(), repoLocal = get()) }
     }
 }
 
 val historyScreen = module {
-    scope(named<HistoryFragment>()) {
+    scope<HistoryFragment> {
         viewModel { HistoryViewModel(repoLocal = get()) }
     }
 }
